@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body{
+            height:100%;
+        }
+        body{
+            background:linear-gradient(rgb(214, 214, 116),rgb(255, 134, 154));
+        }
+        button{
+            border-radius: 10px;
+            padding-left:12px;
+            padding-right:12px;
+            background-color: red;
+            color:white
+        }
+        b{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1 style="color: blue;">Registration form</h1>
+        <form>
+        <table cellspacing="0" cellpadding="5px">
+            <tr>
+                <th align="right"><label for="First Name">First Name</label></th>
+                <td style="width:500px;">
+                    <input type="text" id="First Name" style="width:500px;" onkeyup="validatefname()"></td>
+                <td id="c1"><b>POOR</b></td>
+            </tr>
+            <tr>
+                <th align="right"><label for="Last Name">Last Name</label></th>
+                <td><input type="text" id="Last Name" style="width:500px;" onkeyup="validatelname()"></td>
+                <td id="c2"><b>POOR</b></td>
+            </tr>
+            <tr>
+                <th align="right"><label for="Email">Email</label></th>
+                <td><input type="email" id="Email" style="width:500px;" onkeyup="validateemail()"></td>
+                <td id="c3"><b>POOR</b></td>
+            </tr>
+            <tr>
+                <th align="right"><label for="Password">Password</label></th>
+                <td><input type="password" id="Password" style="width:500px;" onkeyup="validatepassword()"></td>
+                <td id="c4"><b>POOR</b></td>
+            </tr>
+            <tr>
+                <th align="right"><label for="Re-enter Password">Re-enter Password</label></th>
+                <td><input type="password" id="Re-enter Password" style="width:500px;" onkeyup="validaterepassword()"></td>
+                <td id="c5"><b>POOR OR MISMATCH</b></td>
+            </tr>
+            <tr>
+                <th rowspan="2" align="right">Gender:</th>
+                <td>
+                    <input type="radio" name="Gender" id="Male" value="Male">
+                    <label for="Male">Male</label>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="Gender" id="Female" value="Female">
+                    <label for="Female">Female</label>
+                </td>
+                
+            </tr>
+            <tr>
+                <th align="right"><label for="Age">Age</label></th>
+                <td><input type="number" id="Age" style="width:500px;" onkeyup="validateage()"></td>
+                <td id="c6"><b>POOR</b></td>
+            </tr>
+            <tr>
+                <th align="right"><label for="Phone Number">Phone Number</label></th>
+                <td><input type="tel" id="Phone Number" style="width:500px;" onkeyup="validateph()"></td>
+                <td id="c7"><b>POOR</b></td>
+            </tr>
+            <tr style="height:100px;">
+                <th align="right"><label for="Address">Address</label></th>
+                <td>
+                    <textarea id="Address" style="height: 95px; width:500px;" onkeyup="validateaddress()"></textarea>
+                </td>
+                <td id="c8"><b>POOR</b></td>
+            </tr>
+            <tr>
+                <th align="right"><label for="State">State</label></th>
+                <td><input type="text" id="State" style="width:500px;" onkeyup="validatestate()"></td>
+                <td id="c9"><b>POOR</b></td>
+            </tr>
+            <tr>
+                <th align="right"><label for="Country">Country</label></th>
+                <td>
+                    <select name="Country" id="Country">
+                        <option selected disabled>Choose your country</option>
+                        <option value="India">India</option>
+                        <option value="Russia">Russia</option>
+                        <option value="US">US</option>
+                        <option value="UK">UK</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th align="right">Language known</th>
+                <td>
+                    <input type="checkbox" name="English" value="English">
+                    <label for="English">English</label>
+                    <input type="checkbox" name="Kannada" value="Kannada">
+                    <label for="Kannada">Kannada</label>
+                    <input type="checkbox" name="Hindi" value="Hindi">
+                    <label for="Hindi">Hindi</label>
+                    <input type="checkbox" name="Telugu" value="Telugu">
+                    <label for="Telugu">Telugu</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="checkbox" name="Declaration" value="Declaration">
+                    <label for="Declaration"> Hereby I declare all th given details are true</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="right">Log in to <a href="https://ethnus.com">Ethnus</a> website</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td align="center"><button type="submit">Register</button></td>
+            </tr>
+            
+        </table>
+        <br/>
+    </form>
+    </center>
+    <script>
+        function validatefname(){
+            var fname=document.getElementById("First Name").value;
+            if(fname.length>0){
+                document.getElementById("c1").innerHTML="<b style=color:green>GOOD</b>";
+            }
+            else{
+                document.getElementById("c1").innerHTML="<b style=color:red>POOR</b>";
+            }
+        }
+        function validatelname(){
+            var lname=document.getElementById("Last Name").value;
+            if(lname.length>0){
+                document.getElementById("c2").innerHTML="<b style=color:green>GOOD</b>";
+            }
+            else{
+                document.getElementById("c2").innerHTML="<b style=color:red>POOR</b>";
+            }
+        }
+        function validateemail(){
+            var email=document.getElementById("Email").value;
+            var atpos=email.indexOf("@");
+            var dotpos=email.lastIndexOf(".");
+            if(!(email.length==0|| !email.includes("@") || !email.includes(".")||
+            atpos==0 || dotpos==email.length-1 || atpos>dotpos)){
+                document.getElementById("c3").innerHTML="<b style=color:green>GOOD</b>";
+            }
+            else{
+                document.getElementById("c3").innerHTML="<b style=color:red>POOR</b>";
+            }
+        }
+        function validatepassword(){
+            var password=document.getElementById("Password").value;
+            var repassword=document.getElementById("Re-enter Password").value;
+            if(password.length>=5){
+                document.getElementById("c4").innerHTML="<b style=color:green>GOOD</b>";
+                if( password!==repassword)
+                document.getElementById("c5").innerHTML="<b style=color:red>POOR OR MISMATCH</b>";
+            }
+            else{
+                document.getElementById("c4").innerHTML="<b style=color:red>POOR</b>";
+            }
+        }
+        function validaterepassword(){
+            var repassword=document.getElementById("Re-enter Password").value;
+            var password=document.getElementById("Password").value;
+            if(repassword.length>=5 && password===repassword){
+                document.getElementById("c5").innerHTML="<b style=color:green>GOOD AND MATCH</b>";
+            }
+            else{
+                document.getElementById("c5").innerHTML="<b style=color:red>POOR OR MISMATCH</b>";
+            }
+        }
+        function validateage(){
+            var age=document.getElementById("Age").value;
+            if(age>0 && Math.floor(age)==age){
+                document.getElementById("c6").innerHTML="<b style=color:green>GOOD</b>";
+            }
+            else{
+                document.getElementById("c6").innerHTML="<b style=color:red>POOR</b>";
+            }
+        }
+        function validateph(){
+            var ph=document.getElementById("Phone Number").value;
+            if(ph.length>=4 && /\d/.test(ph)){
+                document.getElementById("c7").innerHTML="<b style=color:green>GOOD</b>";
+            }
+            else{
+                document.getElementById("c7").innerHTML="<b style=color:red>POOR</b>";
+            }
+        }
+        function validateaddress(){
+            var address=document.getElementById("Address").value;
+            if(address.length>=5){
+                document.getElementById("c8").innerHTML="<b style=color:green>GOOD</b>";
+            }
+            else{
+                document.getElementById("c8").innerHTML="<b style=color:red>POOR</b>";
+            }
+        }
+        function validatestate(){
+            var state=document.getElementById("State").value;
+            if(state.length>=1){
+                document.getElementById("c9").innerHTML="<b style=color:green>GOOD</b>";
+            }
+            else{
+                document.getElementById("c9").innerHTML="<b style=color:red>POOR</b>";
+            }
+        }
+    </script>
+</body>
+</html>

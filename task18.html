@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link href="C:\Users\Thavanesh\Downloads\bootstrap-5.0.2-dist\bootstrap-5.0.2-dist\css\bootstrap.min.css" rel="stylesheet"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    
+    <form class="form mt-5 container was-validated" novalidate style="width: 500px;">
+        <label class="form-label" for="name"><b>Name</b></label>
+        <input class="form-control" type="text" name="name" required>
+        <div class="invalid-feedback">Name is required</div><br>
+        <label class="form-label" for="email"><b>Email</b></label>
+        <input class="form-control" type="email" name="email" required>
+        <div class="invalid-feedback">Email is required</div><br>
+        <label class="form-label" for="password"><b>Password</b></label>
+        <input class="form-control" type="password" name="password" required>
+        <div class="invalid-feedback">Password is required</div><br>
+        <label class="form-label" for="hobbies"><b>Hobbies</b></label></form>
+        <form class="form container" style="width: 500px;">
+        <select class="form-select" name="hobbies">
+            <option hidden value=""></option>
+            <option value="drawing">Drawing</option>
+            <option value="singing">Singing</option>
+            <option value="dancing">Dancing</option>
+        </select><br><br>
+        <button class="btn bg-danger text-light" type="submit" style="width:480px;">Submit</button>
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       input{
+        border-color: red;
+       }
+       textarea{
+        border:2px solid red;
+       }  
+    </style>
+</head>
+<body>
+    <center>
+    <form id="validateform">
+    <table cellpadding="10px">
+        <tr>
+            <td style="text-align: end;"><label for="name">Name:</label></td>
+            <td><input type="text" id="name" onkeyup="namevalidate()" ></td>
+            <td><span id="vn" style="color: red;">This field is required</span></td>
+        </tr>
+        <tr>
+            <td style="text-align: end;"><label for="email">Email:</label></td>
+            <td><input type="email" id="email" onkeyup="emailvalidate()"></td>
+            <td><span id="ve" style="color: red;">A valid email address is required</span></td>
+        </tr>
+        <tr>
+            <td style="text-align: end;"><label for="website">Website:</label></td>
+            <td><input type="url" id="website" onkeyup="urlvalidate()"></td>
+            <td><span id="vw" style="color: red;">A valid url is required</span></td>
+        </tr>
+        <tr>
+            <td style="padding-bottom: 45px;"><label for="message">Message:</label></td>
+            <td><textarea id="message" style="height: 60px; width: 180px;"
+                onkeyup="msgvalidate()"></textarea></td>
+            <td><span id="vm" style="color: red;">This field is required</span></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button type="submit">Submit</button></td>
+        </tr>
+    </table>
+    </form>
+    </center>
+    <script>
+       /* const validateform=document.getElementById("validateform");
+        validateform.addEventListener('submit',validate);
+        function validate(event){
+            event.preventDefault();
+            if(!namevalidate()){
+                document.getElementById("vn").style.display="block";
+                document.getElementById("name").style.borderColor="red";
+            }
+            if(!emailvalidate()){
+                document.getElementById("ve").style.display="block";
+                document.getElementById("email").style.borderColor="red";
+            }
+            if(!urlvalidate()){
+                document.getElementById("vw").style.display="block";
+                document.getElementById("website").style.borderColor="red";
+            }  
+                     
+            if(!msgvalidate()){
+                document.getElementById("vm").style.display="block";
+                document.getElementById("message").style.border="2px solid red";
+            }
+            
+            return;
+        }*/
+        function namevalidate(){
+            var name=document.getElementById("name").value;
+            if(name.length>0){
+                document.getElementById("vn").style.display="none";
+                document.getElementById("name").style.borderColor="lightgrey";
+                
+            }
+            else{
+                document.getElementById("vn").style.display="block";
+                document.getElementById("name").style.borderColor="red";
+            }
+            
+           }
+        function emailvalidate(){
+            var email=document.getElementById("email").value;
+            var atpos=email.indexOf("@");
+            var dotpos=email.lastIndexOf(".");
+            if(!(email.length==0|| !email.includes("@") || !email.includes(".")||
+            atpos==0 || dotpos==email.length-1 || atpos>dotpos)){
+                document.getElementById("ve").style.display="none";
+                document.getElementById("email").style.borderColor="lightgrey";
+                
+            }
+            else{
+                document.getElementById("ve").style.display="block";
+                document.getElementById("email").style.borderColor="red";
+            }
+        }
+        function msgvalidate(){
+            var message=document.getElementById("message").value;
+            if(message.length>0){
+                document.getElementById("vm").style.display="none";
+                document.getElementById("message").style.borderColor="lightgrey";
+                
+            }
+            else{
+                document.getElementById("vm").style.display="block";
+                document.getElementById("message").style.borderColor="red";
+            }
+           }
+           function urlvalidate(){
+            var website=document.getElementById("website").value;
+            try{
+                if(website.length>0 && new URL(website)){
+                document.getElementById("vw").style.display="none";
+                document.getElementById("website").style.borderColor="lightgrey";
+            }
+            else{
+                document.getElementById("vw").style.display="block";
+                document.getElementById("website").style.borderColor="red";
+            }
+           }
+            catch(error){
+                document.getElementById("vw").style.display="block";
+                document.getElementById("website").style.borderColor="red";
+            }
+           }
+    </script>
+</body>
+</html>

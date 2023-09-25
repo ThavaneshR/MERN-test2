@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(251, 251, 251);
+        }
+        p{
+            text-align: center;
+            font-size: 30px;
+            color: rgb(29, 12, 146);
+        }
+        button{
+            text-align:center;
+        }
+        #train{
+            position:relative;
+            animation-name:anime;
+            animation-duration:5s;
+            animation-iteration-count:infinite;
+            animation-play-state: paused;
+        }
+        @keyframes anime{
+            from{
+                left:0%;
+            }
+            to{
+                left:100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img id="train" id="train" src="train.png" alt="trainimage">
+    <P><b>Click the following buttons to handle animation</b></P>
+    <center><button onclick="start()">start</button>
+    <button onclick="stop()">stop</button></center>
+    <script>
+        function start(){
+            document.getElementById("train").style.animationPlayState="running";
+        }
+        function stop(){
+            document.getElementById("train").style.animationPlayState="paused";
+        }
+    </script>
+</body>
+</html>
